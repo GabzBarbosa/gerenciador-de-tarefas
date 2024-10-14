@@ -30,6 +30,8 @@ header img {
 
 div img {
     flex-direction: row;
+    width: 1500px;
+    height: 200px;
     opacity: 75%;
     transform: scaleX(-1);
     clip-path: inset(0 0 20px 0);
@@ -139,21 +141,13 @@ option {
     border-radius: 5px 20px 5px;
     margin-bottom: 20px;
     cursor: pointer;
-
-
-
+    
 }
 
 .task:hover img {
     opacity: 1;
 }
 
-.task imagem {
-    height: 25px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-
-}
 
 .done {
     background-color: #4d008b;
@@ -161,7 +155,7 @@ option {
 
 }
 
-ul li{
+ul {
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
@@ -170,17 +164,23 @@ ul li{
     position: relative;
 
 }
-ul li::before{
+ul ::before{
     content: '';
     position: absolute;
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    background-image: url(./img/concluido.png);
     background-size: cover;
     background-position: center;
     top: 12px;
     left: 8px;
     position: absolute;
 
+}
+
+li .image{
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 50px;
+    padding: 15px;
 }
