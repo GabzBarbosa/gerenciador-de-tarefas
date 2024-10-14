@@ -30,8 +30,6 @@ header img {
 
 div img {
     flex-direction: row;
-    width: 1512px;
-    height: 120px;
     opacity: 75%;
     transform: scaleX(-1);
     clip-path: inset(0 0 20px 0);
