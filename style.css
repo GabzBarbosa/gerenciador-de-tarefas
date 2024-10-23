@@ -53,6 +53,10 @@ section img {
     
 }
 
+.bulk-actions {
+    display: flex;
+    align-items: center;
+}
 
 .container {
     background-color: rgb(248, 248, 248);
@@ -61,12 +65,16 @@ section img {
     padding: 2px;
     margin: 0 auto 0;
     font-size: 18px;
-    display: grid;
     align-items: center;
+    display: grid;
+    border-radius: 30px;
 }
 
 
+
 form {
+    display: flex;
+    justify-content: row;
     background-color: rgb(248, 248, 248);
     width: 500px;
     border-radius: 5px;
@@ -83,7 +91,7 @@ input {
     outline: none;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    width: 300px;
+    width: 10000px;
     height: 40px;
     padding-left: 10px;
     align-items: center;
@@ -100,7 +108,7 @@ button {
     background-color: rgb(105, 4, 126);
     color: rgb(248, 248, 248);
     font-size: 16px;
-    padding: 16px 50px;
+    padding: 16px;
     float: right;
     cursor: pointer;
     flex-direction: row;

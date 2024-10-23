@@ -17,17 +17,16 @@
     <div class="imagem">
         <img src="./imagem/lapis.png" alt="nav">
     </div>
-    <div class="container">
-        <h3>Cadastro de Novas Tarefas</h3>
+
+        
         <section class="bulk-actions">
             <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editSelected()">
             <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeSelected()">
             <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteSelected()">
-
-
-        </section>
-        <form id="task-form">
-
+        </section> 
+        <div class="container">           
+            <h3>Cadastro de Novas Tarefas</h3>
+         <form id="task-form">
             <input type="text" id="task-name" placeholder="Digite a tarefa" required>
             <input type="date" id="task-deadline" required>
             <button type="submit">+ Adicionar</button>
@@ -37,6 +36,7 @@
 
 
         </ul>
+    
 
     </div>
     <script src="script.js"></script>
