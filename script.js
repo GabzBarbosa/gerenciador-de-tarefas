@@ -17,7 +17,7 @@ taskForm.addEventListener('submit', function(event) {
         return;
     }
 
-    if (new Date(taskDeadline) < new Date()) {
+    if (new Date(taskDeadline) < new Date(taskDeadline)) {
         alert('A data de prazo não pode ser no passado!');
         return;
     }
@@ -31,7 +31,7 @@ taskForm.addEventListener('submit', function(event) {
 function addTask(taskName, taskDeadline) {
     const taskItem = document.createElement('li');
 
-    const daysUntilDeadline = calculateDaysUntilDeadline(taskDeadline);
+    const daysUntilDeadline = calculateDaysUntilDeadline();
     let warning = '';
     if (daysUntilDeadline <= 2 && daysUntilDeadline >= 0) {
         warning = ' <strong>(Atenção: Faltam menos de 2 dias!)</strong>';
@@ -41,15 +41,16 @@ function addTask(taskName, taskDeadline) {
         <input type="checkbox" class="task-select">
         <span class="task-name">${taskName}</span>
         <span class="task-sla"> - ${daysUntilDeadline} dias até o prazo</span>
-        <img src="./imagem/arrastar.png" alt="Arrastar" class="drag-icon" draggable="true">
-    `;
+        ${warning}
+        `;
 
     taskList.appendChild(taskItem);
 
-    saveCurrentOrder();
+
+
 }
 
-// Função para calcular quantos dias faltam até o prazo
+// Calcular quantos dias faltam até o prazo
 function calculateDaysUntilDeadline(deadline) {
     const currentDate = new Date();
     const deadlineDate = new Date(deadline);
@@ -62,19 +63,19 @@ function saveCurrentOrder() {
     const tasks = [];
     document.querySelectorAll('#task-list li').forEach(taskItem => {
         const taskName = taskItem.querySelector('.task-name').textContent.trim();
-        const taskSla = taskItem.querySelector('.task-sla').textContent.split(' ')[1];
-        tasks.push({ name: taskName, sla: taskSla });
+        const taskDeadline = taskItem.querySelector('.task-sla').textContent.split(' ')[1];
+        tasks.push({ name: taskName, deadline: taskDeadline });
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Função para carregar as tarefas do localStorage
+// Carregar as tarefas do localStorage
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.forEach(task => addTask(task.name, task.sla));
+    tasks.forEach(task => addTask(task.name, task.Deadline));
 }
 
-// Função para editar as tarefas selecionadas
+// Editar as tarefas 
 function editSelected() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {
@@ -89,7 +90,7 @@ function editSelected() {
     saveCurrentOrder();
 }
 
-// Função para marcar as tarefas como concluídas
+// Marcar as tarefas como concluídas
 function completeSelected() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {
@@ -99,7 +100,7 @@ function completeSelected() {
     saveCurrentOrder();
 }
 
-// Função para excluir as tarefas selecionadas
+// Excluir as tarefas selecionadas
 function deleteSelected() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {

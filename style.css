@@ -61,15 +61,14 @@ section img {
 .container {
     background-color: rgb(248, 248, 248);
     width: 1000px;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 2px;
     margin: 0 auto 0;
     font-size: 18px;
     align-items: center;
-    display: grid;
     border-radius: 30px;
-}
 
+}
 
 
 form {
@@ -127,11 +126,9 @@ button:active {
 .task-list {
     width: 100%;
     list-style: none;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-top: 15px;
-
-
-
+    box-shadow: #000000;
 
 }
 
@@ -144,6 +141,7 @@ ul {
     border-radius: 15px 10px;
     
 }
+
 ul ::before{
     content: '';
     position: absolute;
@@ -157,8 +155,17 @@ ul ::before{
 
 
 }
+
+.task-select {
+    background-size: cover;
+    height: 16px;
+    width: auto;
+    flex-direction: row;
+}
+
 .completed {
     text-decoration: line-through;
-    color: rgb(120, 44, 182);
+    color: rgb(105, 4, 126);
 }
+
 
