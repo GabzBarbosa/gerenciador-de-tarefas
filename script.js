@@ -33,8 +33,8 @@ function addTask(taskName, taskDeadline) {
 
     const daysUntilDeadline = calculateDaysUntilDeadline();
     let warning = '';
-    if (daysUntilDeadline <= 2 && daysUntilDeadline >= 0) {
-        warning = ' <strong>(Atenção: Faltam menos de 2 dias!)</strong>';
+    if (daysUntilDeadline <= 1 && daysUntilDeadline >= 0) {
+        warning = ' <strong>(Atenção: Vence Amanhã!)</strong>';
     }
 
     taskItem.innerHTML = `
