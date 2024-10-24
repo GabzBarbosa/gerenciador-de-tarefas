@@ -2,7 +2,7 @@ const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
 let draggedItem = null;
 
-// Carregar as tarefas ao carregar a página
+// Carregar as tarefas
 document.addEventListener('DOMContentLoaded', loadTasks);
 
 // Adiciona nova tarefa
@@ -18,7 +18,7 @@ taskForm.addEventListener('submit', function(event) {
     }
 
     if (new Date(taskDeadline) < new Date(taskDeadline)) {
-        alert('A data de prazo não pode ser no passado!');
+        alert('Data não aceita!');
         return;
     }
 
@@ -50,7 +50,7 @@ function addTask(taskName, taskDeadline) {
 
 }
 
-// Calcular quantos dias faltam até o prazo
+// Calcular SLA
 function calculateDaysUntilDeadline(deadline) {
     const currentDate = new Date();
     const deadlineDate = new Date(deadline);
@@ -58,7 +58,7 @@ function calculateDaysUntilDeadline(deadline) {
     return Math.ceil(timeDiff / (1000 * 3600 * 24));
 }
 
-// Salvar a ordem atual das tarefas no localStorage
+// Salvar as tarefas no localStorage
 function saveCurrentOrder() {
     const tasks = [];
     document.querySelectorAll('#task-list li').forEach(taskItem => {
