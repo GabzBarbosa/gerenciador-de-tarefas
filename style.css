@@ -10,11 +10,13 @@
     font-weight: 300;
 
 }
-body{
+
+body {
     flex: flex;
     justify-content: center;
     background-color: rgb(240, 235, 243);
 }
+
 header {
     font-size: 20px;
     background-color: rgb(105, 4, 126);
@@ -38,7 +40,7 @@ div img {
     background-size: cover;
     height: 211px;
     width: 100%;
-    
+
 }
 
 section {
@@ -46,11 +48,12 @@ section {
     justify-content: flex-end;
     align-items: end;
 }
+
 section img {
     background-size: cover;
     height: 50px;
     width: auto;
-    
+
 }
 
 .bulk-actions {
@@ -139,10 +142,10 @@ ul {
     cursor: pointer;
     background-color: rgb(248, 238, 228);
     border-radius: 15px 10px;
-    
+
 }
 
-ul ::before{
+ul ::before {
     content: '';
     position: absolute;
     height: 28px;
@@ -154,6 +157,23 @@ ul ::before{
     left: 8px;
 
 
+}
+
+
+
+.task-name {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    transition: 0.3s;
+}
+
+.task-name:hover {
+    max-width: 500px;
+    white-space: normal;
 }
 
 .task-select {
@@ -168,4 +188,20 @@ ul ::before{
     color: rgb(105, 4, 126);
 }
 
+@media screen and (max-width: 1020px) {
 
+    /* Container*/
+    .container {
+
+        width: auto;
+        padding: 40px 8%;
+
+    }
+
+    .bulk-actions {
+ 
+        align-items: center;
+    }
+
+
+}

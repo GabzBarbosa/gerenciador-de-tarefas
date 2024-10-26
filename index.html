@@ -19,15 +19,16 @@
         <img src="./imagem/lapis.png" alt="nav">
     </div>
 
-        
-        <section class="bulk-actions">
-            <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editSelected()">
-            <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeSelected()">
-            <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteSelected()">
-        </section> 
-        <div class="container">           
-                       
-         <form id="task-form">
+
+    <section class="bulk-actions">
+        <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeAllSelect()">
+        <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editAllSelect()">
+        <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteAllSelected()">
+
+    </section>
+    <div class="container">
+
+        <form id="task-form">
             <input type="text" id="task-name" placeholder="Digite a tarefa" required>
             <input type="date" id="task-deadline" required>
             <button type="submit">+ Adicionar</button>
@@ -35,12 +36,15 @@
 
         <ul id="task-list">
 
-
         </ul>
-    
+
 
     </div>
     <script src="script.js"></script>
 </body>
+<footer>
+    <p>https://github.com/GabzBarbosa</p>
+
+</footer>
 
 </html>

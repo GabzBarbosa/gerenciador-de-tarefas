@@ -1,8 +1,8 @@
 const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
-let draggedItem = null;
 
-// Carregar as tarefas
+
+// Carregar as tarefas ao carregar a página
 document.addEventListener('DOMContentLoaded', loadTasks);
 
 // Adiciona nova tarefa
@@ -18,7 +18,7 @@ taskForm.addEventListener('submit', function(event) {
     }
 
     if (new Date(taskDeadline) < new Date(taskDeadline)) {
-        alert('Data não aceita!');
+        alert('A data de prazo não pode ser no passado!');
         return;
     }
 
@@ -27,14 +27,15 @@ taskForm.addEventListener('submit', function(event) {
     taskForm.reset();
 });
 
-// Função para adicionar tarefas
+// Função para adicionar tarefas na li
+
 function addTask(taskName, taskDeadline) {
     const taskItem = document.createElement('li');
 
     const daysUntilDeadline = calculateDaysUntilDeadline();
     let warning = '';
-    if (daysUntilDeadline <= 1 && daysUntilDeadline >= 0) {
-        warning = ' <strong>(Atenção: Vence Amanhã!)</strong>';
+    if (daysUntilDeadline <= 2 && daysUntilDeadline >= 0) {
+        warning = ' <strong>(Atenção: Faltam menos de 2 dias!)</strong>';
     }
 
     taskItem.innerHTML = `
@@ -46,11 +47,9 @@ function addTask(taskName, taskDeadline) {
 
     taskList.appendChild(taskItem);
 
-
-
 }
 
-// Calcular SLA
+// Calcular quantos dias faltam até o prazo
 function calculateDaysUntilDeadline(deadline) {
     const currentDate = new Date();
     const deadlineDate = new Date(deadline);
@@ -58,7 +57,7 @@ function calculateDaysUntilDeadline(deadline) {
     return Math.ceil(timeDiff / (1000 * 3600 * 24));
 }
 
-// Salvar as tarefas no localStorage
+// Salvar a ordem atual das tarefas no localStorage
 function saveCurrentOrder() {
     const tasks = [];
     document.querySelectorAll('#task-list li').forEach(taskItem => {
@@ -76,7 +75,7 @@ function loadTasks() {
 }
 
 // Editar as tarefas 
-function editSelected() {
+function editAllSelect() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {
         const taskItem = taskCheckbox.parentElement;
@@ -91,7 +90,7 @@ function editSelected() {
 }
 
 // Marcar as tarefas como concluídas
-function completeSelected() {
+function completeAllSelect() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {
         const taskItem = taskCheckbox.parentElement;
@@ -101,7 +100,7 @@ function completeSelected() {
 }
 
 // Excluir as tarefas selecionadas
-function deleteSelected() {
+function deleteAllSelected() {
     const selectedTasks = document.querySelectorAll('.task-select:checked');
     selectedTasks.forEach(taskCheckbox => {
         const taskItem = taskCheckbox.parentElement;
