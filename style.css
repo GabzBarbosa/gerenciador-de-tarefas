@@ -12,8 +12,6 @@
 }
 
 body {
-    flex: flex;
-    justify-content: center;
     background-color: rgb(240, 235, 243);
 }
 
@@ -68,8 +66,12 @@ section img {
     padding: 2px;
     margin: 0 auto 0;
     font-size: 18px;
-    align-items: center;
     border-radius: 30px;
+    gap: 2rem;
+    flex-wrap: wrap;
+    flex: 1;
+    margin-top: auto;
+    border: 1px solid red;
 
 }
 
@@ -113,7 +115,7 @@ button {
     padding: 16px;
     float: right;
     cursor: pointer;
-    flex-direction: row;
+
 
 }
 
@@ -126,14 +128,7 @@ button:active {
     opacity: 0.2;
 }
 
-.task-list {
-    width: 100%;
-    list-style: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    box-shadow: #000000;
 
-}
 
 ul {
     list-style: none;
@@ -142,6 +137,14 @@ ul {
     cursor: pointer;
     background-color: rgb(248, 238, 228);
     border-radius: 15px 10px;
+    box-shadow: #000000;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    gap: 2rem; 
+    border: 1px solid orange;
+
+
 
 }
 
@@ -187,6 +190,9 @@ ul ::before {
     text-decoration: line-through;
     color: rgb(105, 4, 126);
 }
+
+
+/* mexer nos avisos */
 
 @media screen and (max-width: 1020px) {
 

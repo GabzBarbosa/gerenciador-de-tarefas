@@ -32,30 +32,39 @@ taskForm.addEventListener('submit', function(event) {
 function addTask(taskName, taskDeadline) {
     const taskItem = document.createElement('li');
 
-    const daysUntilDeadline = calculateDaysUntilDeadline();
+    // Verifica se taskDeadline é uma data válida 
+    const hoursUntilDeadline = calculateHoursUntilDeadline(taskDeadline);
     let warning = '';
-    if (daysUntilDeadline <= 2 && daysUntilDeadline >= 0) {
-        warning = ' <strong>(Atenção: Faltam menos de 2 dias!)</strong>';
+    if (hoursUntilDeadline !== null && hoursUntilDeadline <= 48 && hoursUntilDeadline >= 0) {
+        warning = ' <strong>(Atenção: Faltam menos de 48 horas!)</strong>';
     }
 
     taskItem.innerHTML = `
         <input type="checkbox" class="task-select">
         <span class="task-name">${taskName}</span>
-        <span class="task-sla"> - ${daysUntilDeadline} dias até o prazo</span>
+        <span class="task-sla"> - ${hoursUntilDeadline !== null ? hoursUntilDeadline : "Data inválida"} horas até o prazo</span>
         ${warning}
-        `;
+    `;
 
     taskList.appendChild(taskItem);
-
 }
 
-// Calcular quantos dias faltam até o prazo
-function calculateDaysUntilDeadline(deadline) {
-    const currentDate = new Date();
+// Calcular quantas horas faltam até o prazo
+function calculateHoursUntilDeadline(deadline) {
     const deadlineDate = new Date(deadline);
+    const currentDate = new Date();
+
+    // Verifica se a data é válida
+    if (isNaN(deadlineDate)) {
+        console.error("Data inválida fornecida para o prazo:", deadline);
+        return null; // Retorna null se a data for inválida
+    }
+
     const timeDiff = deadlineDate - currentDate;
-    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return Math.ceil(timeDiff / (1000 * 60 * 60)); // Converte o tempo para horas
 }
+
+
 
 // Salvar a ordem atual das tarefas no localStorage
 function saveCurrentOrder() {
@@ -108,3 +117,4 @@ function deleteAllSelected() {
     });
     saveCurrentOrder();
 }
+
