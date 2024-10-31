@@ -20,27 +20,35 @@
     </div>
 
 
-    <section class="bulk-actions">
-        <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeAllSelect()">
-        <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editAllSelect()">
-        <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteAllSelected()">
-
-    </section>
+    
     <div class="container">
+        <section class="bulk-actions">
 
+            <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeAllSelect()">
+            <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editAllSelect()">
+            <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteAllSelected()">
+    
+        </section>
         <form id="task-form">
             <input type="text" id="task-name" placeholder="Digite a tarefa" required>
             <input type="date" id="task-deadline" required>
-            <button type="submit">+ Adicionar</button>
+            <button>
+                <ion-icon name="add-outline"></ion-icon>
+                <span>Adicionar</span>
+                </button>
         </form>
 
         <ul id="task-list">
+            
 
         </ul>
 
 
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    
 </body>
 <footer>
     <p>https://github.com/GabzBarbosa</p>
