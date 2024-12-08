@@ -1,210 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --primary-color: rgb(251, 255, 11);
+}
+
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-style: normal;
+    font-family: "Poppins", serif;
     outline: none;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-
+    box-sizing: border-box;
 }
 
 body {
-    flex: flex;
-    justify-content: center;
-    background-color: rgb(240, 235, 243);
+    background-color: #DDD;
 }
 
-header {
-    font-size: 20px;
-    background-color: rgb(105, 4, 126);
-    color: rgb(255, 255, 255);
+.header {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-family: "Poppins", sans-serif;
+    background-color: rgb(6, 1, 10);
+    padding: 30px;
+    color: #FFF;
+
+}
+
+button.primary {
+    border: none;
+    background-color: var(--primary-color);
+    color: #050101;
+    font-size: 16px;
+    padding: 9px 22px;
+    border-radius: 6px;
+    cursor: pointer;
     font-weight: 500;
 
 }
 
-header img {
-    margin-left: 60px;
-    border-radius: 50px;
-    padding: 15px;
-
-}
-
-
-div img {
-    background-size: cover;
-    height: 211px;
-    width: 100%;
-
-}
-
-section {
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-}
-
-section img {
-    background-size: cover;
-    height: 50px;
-    width: auto;
-
-}
-
-.bulk-actions {
-    display: flex;
-    align-items: center;
-}
-
 .container {
-    background-color: rgb(248, 248, 248);
-    width: 1000px;
-    border-radius: 5px;
-    padding: 2px;
-    margin: 0 auto 0;
-    font-size: 18px;
-    align-items: center;
-    border-radius: 30px;
-
-}
-
-
-form {
     display: flex;
-    justify-content: row;
-    background-color: rgb(248, 248, 248);
-    width: 500px;
-    border-radius: 5px;
-    margin: 0 auto 0;
-    font-size: 18px;
+    gap: 30px;
+    justify-content: center;
     align-items: center;
-    border-radius: 30px;
-
+    padding: 50px;
 }
 
-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50px;
-    width: 10000px;
-    height: 40px;
-    padding-left: 10px;
-    align-items: center;
-    font-size: 16px;
-
-}
-
-
-button {
-    border: none;
-    outline: none;
-    border-radius: 50px;
-    height: px;
-    background-color: rgb(105, 4, 126);
-    color: rgb(248, 248, 248);
-    font-size: 16px;
-    padding: 16px;
-    float: right;
-    cursor: pointer;
-    flex-direction: row;
-
-}
-
-button:hover {
-    opacity: 0.8;
-
-}
-
-button:active {
-    opacity: 0.2;
-}
-
-.task-list {
-    width: 100%;
-    list-style: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    box-shadow: #000000;
-
-}
-
-ul {
-    list-style: none;
-    font-size: 16px;
-    user-select: none;
-    cursor: pointer;
-    background-color: rgb(248, 238, 228);
-    border-radius: 15px 10px;
-    gap: 1.2rem;
-    display: grid;
-    
-
-}
-
-ul ::before {
-    content: '';
-    position: absolute;
-    height: 28px;
-    width: 28px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    top: 12px;
-    left: 8px;
-
-
-}
-
-
-
-.task-name {
-    max-width: 200px;
-    white-space: nowrap;
+.container .column {
+    width: 250px;
+    height: 600px;
+    background-color: #FFF;
+    border-radius: 18px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    vertical-align: middle;
-    transition: 0.3s;
+    
+}
+.container .column .head {
+     background-color: var(--primary-color);
+     color: #050101;
+     padding: 12px;
+     text-align: center;
+     
 }
 
-.task-name:hover {
-    max-width: 500px;
-    white-space: normal;
+#modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background-color: rgba(0,0,0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
-.task-select {
-    background-size: cover;
-    height: 16px;
-    width: auto;
-    flex-direction: row;
+#modal .box {
+    background-color: #FFF;
+    width: 400px;
+    border-radius: 7px;
+    overflow: hidden;
+
 }
 
-.completed {
-    text-decoration: line-through;
-    color: rgb(105, 4, 126);
+#modal .box .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #DDD;
 }
 
-@media screen and (max-width: 1020px) {
+#modal .box .head span {
+    font-size:18px;
+    font-weight: 700;
+    color: #333;
+}
 
-    /* Container*/
-    .container {
+#modal .box .head button {
+    border: none;
+    background: none;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #333;
+}
 
-        width: auto;
-        padding: 40px 8%;
+#modal .box .form {
+    padding: 20px;
+}
 
-    }
+#modal .box .form .form-group {
+    margin-bottom: 15px
+}
 
-    .bulk-actions {
- 
-        align-items: center;
-    }
+#modal .box .form label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    
+}
 
+#modal .box .form textarea,
+#modal .box .form select,
+#modal .box .form input {
+    width: 100%;
+    border-radius: 7px;
+    font-size: 14px;
+    border: 1px solid #999;
+    color: #333;
+}
 
+#modal .box .form textarea {
+    padding: 10px 15px;
+    
+}
+
+#modal .box .form select {
+    padding: 10px;
+    
+}
+
+#modal .box .form input {
+    padding: 10px;
+    
+}
+
+#modal .box .form button {
+    display: block;
+    margin-left: auto;    
 }

@@ -1,50 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen and (max-device-height: 799px)" />
-    <link rel="stylesheet" href="style.css">
-    <title>Gerenciador de Tarefas</title>
+    <title>Gengabz - Kanban</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
 </head>
-
 <body>
-    <header>
-        <img src="./imagem/logo.PNG" alt="Logo" width="100" height="100">
-        <h2>Gerenciador de Tarefas</h2>
-    </header>
+     <div class="header">
+        <h1>Gengabz - Kanban</h1>
+        <button class="primary" onclick="openModal()">Nova Tarefa</button>
+     </div>
 
-    <div class="imagem">
-        <img src="./imagem/lapis.png" alt="nav">
-    </div>
+     <div class="container">
+        <div class="column">
+            <div class="head">
+                <span>A Fazer</span>
+            </div>
+            <div class="body">
+
+            </div>
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Em progresso</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Finalizado</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+        <div class="column">
+            <div class="head">
+                <span>Arquivado</span>
+            </div>
+            <div class="body">
+                
+            </div>
+        </div>
+     </div>
+
+     <div id="modal">
+        <div class="box">
+            <div class="head">
+                <span>Nova Tarefa</span>
+                <button onclick="closeModal()">X</button>
+            </div>
+
+            <div class="form">
+                <div class="form-group">
+                    <label for="">Descrição</label>
+                    <textarea name="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Prioridade</label>
+                    <select>
+                        <option>Baixa</option>
+                        <option>Media</option>
+                        <option>Alta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Prazo</label>
+                    <input type="date" id="deadLine">
+                </div>
+
+                <button class="primary">Cadastrar</button>
+            </div>
+        </div>
+     </div>
 
 
-    <section class="bulk-actions">
-        <img src="./imagem/concluir.png" alt="Completar Tarefa" onclick="completeAllSelect()">
-        <img src="./imagem/editar.png" alt="Editar Tarefa" onclick="editAllSelect()">
-        <img src="./imagem/excluir.png" alt="Deletar Tarefa" onclick="deleteAllSelected()">
-
-    </section>
-    <div class="container">
-
-        <form id="task-form">
-            <input type="text" id="task-name" placeholder="Digite a tarefa" required>
-            <input type="date" id="task-deadline" required>
-            <button type="submit">+ Adicionar</button>
-        </form>
-
-        <ul id="task-list">
-
-        </ul>
-
-
-    </div>
-    <script src="script.js"></script>
+     <script src="./script.js"></script>
 </body>
-<footer>
-    <p>https://github.com/GabzBarbosa</p>
-
-</footer>
-
 </html>
