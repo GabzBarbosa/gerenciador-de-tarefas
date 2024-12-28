@@ -17,7 +17,7 @@
      </div>
 
      <div class="container">
-        <div class="column">
+        <div class="column" id="todoColumn">
             <div class="head">
                 <span>A Fazer</span>
             </div>
@@ -60,24 +60,24 @@
 
             <div class="form">
                 <div class="form-group">
-                    <label for="">Descrição</label>
-                    <textarea name="description" rows="3"></textarea>
+                    <label for="description">Descrição</label>
+                    <textarea id="description" rows="3"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="">Prioridade</label>
-                    <select>
+                    <label for="priority">Prioridade</label>
+                    <select id="priority">
                         <option>Baixa</option>
                         <option>Media</option>
                         <option>Alta</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Prazo</label>
+                    <label for="deadLine">Prazo</label>
                     <input type="date" id="deadLine">
                 </div>
 
-                <button class="primary">Cadastrar</button>
+                <button class="primary" onclick="createTask()">Cadastrar</button>
             </div>
         </div>
      </div>
