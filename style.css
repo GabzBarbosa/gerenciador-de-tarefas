@@ -49,7 +49,7 @@ button.primary {
 .container .column {
     width: 250px;
     height: 600px;
-    background-color: #FFF;
+    background-color: #ffffff;
     border-radius: 18px;
     overflow: hidden;
     
@@ -60,6 +60,31 @@ button.primary {
      padding: 12px;
      text-align: center;
      
+}
+
+.container .column .body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+}
+
+
+.container .column .body .card {
+    background-color: #EEE;
+    border-radius: 7px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container .column .body .card .info {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
 }
 
 #modal {
