@@ -2,9 +2,15 @@ const $modal = document.getElementById('modal');
 const $descriptionInput = document.getElementById('description');
 const $priorityInput = document.getElementById('priority');
 const $deadLineInput = document.getElementById('deadLine');
-const $idInput = document.getElementById('idImput');
+const $idInput = document.getElementById('idInput');
 
 const $todoColumnBody = document.querySelector('#todoColumn .body');
+
+const $createModeTitle = document.getElementById('createModeTitle');
+const $editeModeTitle = document.getElementById('editeModeTitle');
+
+const $createModeBtn = document.getElementById('createModeBtn');
+const $editeModeBtn = document.getElementById('editeModeBtn');
 
 var todoList = [];
 
@@ -12,6 +18,13 @@ function openModal(id) {
     $modal.style.display = "flex";
 
     if (id) {
+
+        $createModeTitle.style.display = "none";
+        $createModeBtn.style.display = "none";
+        
+        $editeModeTitle.style.display = "block";
+        $editeModeBtn.style.display = "block";
+
         const index = todoList.findIndex(function(task) {
             return task.id = id;
         });
@@ -23,6 +36,12 @@ function openModal(id) {
         $priorityInput.value = task.priority;
         $deadLineInput.value = task.deadline;
         
+    } else {
+        $createModeTitle.style.display = "block";
+        $createModeBtn.style.display = "block";
+
+        $editeModeTitle.style.display = "none";
+        $editeModeBtn.style.display = "none";
     }
 }
 
@@ -80,5 +99,24 @@ function createTask() {
     closeModal();
     generateCards();
 
+
+}
+
+function updateTask() {
+    const task = {
+        id: $idInput.value,
+        description: $descriptionInput.value,
+        priority: $priorityInput.value,
+        deadline: $deadLineInput.value,
+    }
+
+    const index = todoList.findIndex(function(task) {
+        return task.id = $idInput.value;
+    });
+
+    todoList[index] = task;
+
+    closeModal();
+    generateCards();
 
 }
